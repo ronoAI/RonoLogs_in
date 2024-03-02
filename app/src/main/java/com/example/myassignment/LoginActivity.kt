@@ -1,8 +1,6 @@
 package com.example.myassignment
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -11,13 +9,13 @@ import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var loginHelper: LoginHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val sharedPreferences: SharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val savedUsername = sharedPreferences.getString("username", "")
-        val savedPassword = sharedPreferences.getString("password", "")
+        loginHelper = LoginHelper(this)
 
         val usernameEditText: EditText = findViewById(R.id.unmEdit)
         val passwordEditText: EditText = findViewById(R.id.pwdEdit)
@@ -27,7 +25,9 @@ class LoginActivity : AppCompatActivity() {
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
 
-            if (username == savedUsername && password == savedPassword) {
+            val savedPassword = loginHelper.getUser(username)
+
+            if (password == savedPassword) {
                 // Successful login
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@LoginActivity, OpenActivity::class.java))
