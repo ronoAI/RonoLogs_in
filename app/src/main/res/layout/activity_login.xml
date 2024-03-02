@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity">
+    
+    <EditText
+        android:id="@+id/unmEdit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="200dp"
+        android:hint="@string/unm"/>
+    <EditText
+        android:id="@+id/pwdEdit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="textPassword"
+        android:hint="@string/pwd"
+        android:layout_marginTop="250dp"/>
+    <Button
+        android:id="@+id/lgnBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lgn"
+        android:layout_marginTop="300dp"/>
+</RelativeLayout>

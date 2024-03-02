@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Rono Logs In</string>
+    <string name="lgn">Log In</string>
+    <string name="sgn">Sign Up</string>
+    <string name="unm">Username</string>
+    <string name="pwd">Password</string>
+</resources>
